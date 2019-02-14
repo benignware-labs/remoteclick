@@ -1,0 +1,10 @@
+# Mac OS
+.DS_Store
+
+# Node
+node_modules
+**/node_modules
+npm-debug.log
+
+# Parcel
+.cache
