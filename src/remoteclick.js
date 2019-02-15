@@ -4,6 +4,7 @@ function remoteclick(selector, options = {}) {
   options = {
     srcAttr: 'href',
     mode: 'append',
+    history: false,
     ...options
   };
 
@@ -76,14 +77,16 @@ function remoteclick(selector, options = {}) {
                 }
               }
 
-              // Find remote title
-              const title = (dom.querySelector(targetSelector) || {
-                title: document.title
-              }).title;
+              if (history) {
+                // Find remote title
+                const title = (dom.querySelector(targetSelector) || {
+                  title: document.title
+                }).title;
 
-              history.pushState({
-                remoteClick: true
-              }, title, url.href);
+                history.pushState({
+                  title
+                }, title, url.href);
+              }
             });
           });
         }

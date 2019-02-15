@@ -7,7 +7,7 @@
   "scripts": {
     "test": "mocha test/test.js --reporter spec",
     "lint": "./node_modules/.bin/eslint src",
-    "clean": "rm -rf tmp",
+    "clean": "rm -rf dist",
     "build": "npm run clean && webpack --config ./webpack.config.js -o ./dist/remoteclick.js",
     "start": "webpack-dev-server --mode development --config ./webpack.config.js -o ./dist/remoteclick.js"
   },
