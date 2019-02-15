@@ -1,9 +1,8 @@
 {
   "name": "remoteclick",
-  "version": "0.0.1",
+  "version": "0.1.0-alpha.1",
   "description": "Ajaxify partial content easily",
   "main": "dist/remoteclick.js",
-  "module": "src/remoteclick.mjs",
   "scripts": {
     "test": "mocha test/test.js --reporter spec",
     "lint": "./node_modules/.bin/eslint src",
