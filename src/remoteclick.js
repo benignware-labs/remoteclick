@@ -77,7 +77,7 @@ function remoteclick(selector, options = {}) {
                 }
               }
 
-              if (history) {
+              if (options.history) {
                 // Find remote title
                 const title = (dom.querySelector(targetSelector) || {
                   title: document.title
