@@ -1,6 +1,6 @@
 {
   "name": "remoteclick",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.4",
   "description": "Ajaxify partial content easily",
   "main": "dist/remoteclick.js",
   "scripts": {
