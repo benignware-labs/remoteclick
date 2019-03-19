@@ -5,6 +5,7 @@ function remoteclick(selector, options = {}) {
     srcAttr: 'href',
     mode: 'append',
     history: false,
+    containerSelector: null,
     ...options
   };
 
@@ -13,12 +14,14 @@ function remoteclick(selector, options = {}) {
 
     if (target) {
       if (target.matches(selector)) {
-        const container = target.parentNode;
+        const container = options.containerSelector
+          ? document.querySelector(options.containerSelector)
+          : target.parentNode;
         const href = target.getAttribute(options.srcAttr) || target.getAttribute(`data-${options.srcAttr}`);
 
-        if (href) {
+        if (container && href) {
           const url = new URL(href, window.location.href);
-          const containerSelector = uniqueSelector(container);
+          const containerSelector = options.containerSelector || uniqueSelector(container);
           const targetSelector = uniqueSelector(target);
 
           fetch(url.href, {
@@ -37,14 +40,14 @@ function remoteclick(selector, options = {}) {
                 for (let { name } of dom.attributes) {
                   target.removeAttribute(name);
                 }
+
                 // Update attributes
                 for (let { name, value } of remoteTarget.attributes) {
                   target.setAttribute(name, value);
                 }
-                // Update content
-                target.innerHTML = remoteTarget.innerHTML;
 
-                remoteTarget.parentNode.removeChild(remoteTarget);
+                // Update link content
+                target.innerHTML = remoteTarget.innerHTML;
               } else {
                 // End of list
                 target.parentNode.removeChild(target);
@@ -54,29 +57,38 @@ function remoteclick(selector, options = {}) {
               const remoteContainer = dom.querySelector(containerSelector);
 
               if (remoteContainer) {
-                const isInContainer = target.parentNode === container;
+                // Create content fragment
+                const fragment = document.createDocumentFragment();
+                // Take care of link wrappers
+                const remoteTargetWrapper = [ ...remoteContainer.childNodes ]
+                  .find((child) => child.contains(remoteTarget)) || remoteTarget;
+                const targetWrapper = [ ...container.childNodes ]
+                  .find((child) => child.contains(target)) || target;
 
-                if (isInContainer) {
-                  target.parentNode.removeChild(target);
+                for (const child of remoteContainer.children) {
+                  fragment.appendChild(
+                    child === remoteTargetWrapper
+                      ? targetWrapper
+                      : document.importNode(child, true)
+                  );
                 }
 
+                // Actually update dom content
                 switch (options.mode) {
                 case 'update':
-                  container.innerHTML = remoteContainer.innerHTML;
+                  container.appendChild(fragment);
                   break;
                 case 'prepend':
-                  container.innerHTML = remoteContainer.innerHTML + container.innerHTML;
+                  container.insertBefore(container.firstChild, fragment);
                   break;
                 case 'append':
-                  container.innerHTML = container.innerHTML + remoteContainer.innerHTML;
+                  container.appendChild(fragment);
                   break;
                 }
 
-                if (isInContainer) {
-                  container.appendChild(target);
-                }
               }
 
+              // History
               if (options.history) {
                 // Find remote title
                 const title = (dom.querySelector(targetSelector) || {
