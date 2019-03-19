@@ -1,0 +1,19 @@
+.btn .btn-label,
+.btn .spinner-border {
+  vertical-align: middle;
+}
+
+.btn .spinner-border {
+  transition: opacity .2s ease-out,
+              max-width .2s ease-out,
+              max-height .2s ease-out;
+  opacity: 0;
+  max-width: 0;
+  max-height: 0;
+}
+
+.btn.pending .spinner-border {
+  opacity: 1;
+  max-width: 2.5em;
+  max-height: 2.5em;
+}

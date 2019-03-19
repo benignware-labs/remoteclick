@@ -4,8 +4,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="/remoteclick.js"></script>
     <script>
-      console.log(remoteclick);
-      remoteclick('*[data-remote]');
+      remoteclick('*[data-remote]', (element) => ({
+        containerSelector: '#content'
+      }));
     </script>
   </head>
   <body>
