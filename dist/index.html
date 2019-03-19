@@ -4,15 +4,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="/remoteclick.js"></script>
     <script>
-      console.log(remoteclick);
-      remoteclick('*[data-remote]');
+      remoteclick('*[data-remote]', {
+        containerSelector: '#content'
+      });
     </script>
   </head>
   <body>
     <div class="site p-4">
       <div>
         <h1>remoteclick</h1>
-        <p>Ajaxify forms easily<p>
+        <p>Ajaxify partial content easily<p>
         <div class="content" id="content">
           <article>
             <h1>Entry 1</h1>
@@ -26,7 +27,10 @@
           <article>
             <h1>Entry 4</h1>
           </article>
-          <a href="/page2.html" data-remote="remote">Load more</a>
+
+          <nav>
+            <a href="/page2.html" data-remote="remote">Load more</a>
+          </nav>
         </div>
       </div>
     </div>
