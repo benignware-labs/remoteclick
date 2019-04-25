@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
     <script src="/remoteclick.js"></script>
-    <script>
-      remoteclick('*[data-remote]', (element) => ({
-        containerSelector: '#content'
-      }));
-    </script>
+    <script src="/script.js"></script>
   </head>
   <body>
     <div class="site p-4">
@@ -27,6 +24,12 @@
           <article>
             <h1>Entry 13</h1>
           </article>
+          <nav>
+            <a href="/page4.html" data-remote="remote" class="btn btn-primary">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              <span class="btn-label">Load more</span>
+            </a>
+          </nav>
         </div>
       </div>
     </div>

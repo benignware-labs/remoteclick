@@ -239,6 +239,17 @@ eval("module.exports = __webpack_require__.p + \"page3.html\";\n\n//# sourceURL=
 
 /***/ }),
 
+/***/ "../test/fixtures/page4.html":
+/*!***********************************!*\
+  !*** ../test/fixtures/page4.html ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"page4.html\";\n\n//# sourceURL=webpack:///../test/fixtures/page4.html?");
+
+/***/ }),
+
 /***/ "./remoteclick.js":
 /*!************************!*\
   !*** ./remoteclick.js ***!
@@ -252,13 +263,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var uniq
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************************************************************!*\
-  !*** multi ./remoteclick.js ../test/fixtures/index.html ../test/fixtures/page2.html ../test/fixtures/page3.html ***!
-  \******************************************************************************************************************/
+/*!**********************************************************************************************************************************************!*\
+  !*** multi ./remoteclick.js ../test/fixtures/index.html ../test/fixtures/page2.html ../test/fixtures/page3.html ../test/fixtures/page4.html ***!
+  \**********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/src/remoteclick.js */\"./remoteclick.js\");\n__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/index.html */\"../test/fixtures/index.html\");\n__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/page2.html */\"../test/fixtures/page2.html\");\nmodule.exports = __webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/page3.html */\"../test/fixtures/page3.html\");\n\n\n//# sourceURL=webpack:///multi_./remoteclick.js_../test/fixtures/index.html_../test/fixtures/page2.html_../test/fixtures/page3.html?");
+eval("__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/src/remoteclick.js */\"./remoteclick.js\");\n__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/index.html */\"../test/fixtures/index.html\");\n__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/page2.html */\"../test/fixtures/page2.html\");\n__webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/page3.html */\"../test/fixtures/page3.html\");\nmodule.exports = __webpack_require__(/*! /Users/rafaelnowrotek/Projects/remoteclick/test/fixtures/page4.html */\"../test/fixtures/page4.html\");\n\n\n//# sourceURL=webpack:///multi_./remoteclick.js_../test/fixtures/index.html_../test/fixtures/page2.html_../test/fixtures/page3.html_../test/fixtures/page4.html?");
 
 /***/ })
 
