@@ -1,4 +1,5 @@
 import uniqueSelector from 'unique-selector';
+import contains from 'node-contains';
 
 function remoteclick(selector, options = {}) {
 
@@ -76,9 +77,9 @@ function remoteclick(selector, options = {}) {
               const fragment = document.createDocumentFragment();
               // Take care of link wrappers
               const remoteTargetWrapper = [ ...remoteContainer.childNodes ]
-                .find((child) => child.contains(remoteTarget)) || remoteTarget;
+                .find((child) => contains(child, remoteTarget)) || remoteTarget;
               const targetWrapper = [ ...container.childNodes ]
-                .find((child) => child.contains(target)) || target;
+                .find((child) => contains(child, target)) || target;
 
               for (const child of remoteContainer.children) {
                 fragment.appendChild(
@@ -100,7 +101,6 @@ function remoteclick(selector, options = {}) {
                 container.appendChild(fragment);
                 break;
               }
-
             }
 
             // History
