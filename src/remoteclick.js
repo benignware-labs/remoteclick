@@ -77,7 +77,7 @@ function remoteclick(selector, options = {}) {
               const fragment = document.createDocumentFragment();
               // Take care of link wrappers
               const remoteTargetWrapper = [ ...remoteContainer.childNodes ]
-                .find((child) => contains(child, remoteTarget)) || remoteTarget;
+                .find((child) => remoteTarget && contains(child, remoteTarget)) || remoteTarget;
               const targetWrapper = [ ...container.childNodes ]
                 .find((child) => contains(child, target)) || target;
 
