@@ -19,17 +19,34 @@ function remoteclick(selector, options = {}) {
         )
       };
 
+      let container = null;
       let { containerSelector } = options;
 
-      if (typeof containerSelector === 'function') {{
-        containerSelector = containerSelector(target);
-      }}
+      if (typeof containerSelector === 'function') {
+        const containerSelectorResult = containerSelector(target);
 
-      const container = containerSelector
-        ? document.querySelector(containerSelector)
-        : target.parentNode;
+        if (typeof containerSelectorResult === 'object') {
+          container = containerSelectorResult;
+        } else {
+          containerSelector = containerSelectorResult;
+        }
+      }
 
-      containerSelector = containerSelector || uniqueSelector(container);
+      if (!container) {
+        if (containerSelector) {
+          container = document.querySelector(containerSelector);
+        } else {
+          container = target.parentNode;
+
+          while (container && container.tagName.toLowerCase() === 'nav') {
+            container = container.parentNode;
+          }
+        }
+      }
+
+      if (container && !containerSelector) {
+        containerSelector = containerSelector || uniqueSelector(container);
+      }
 
       const href = target.getAttribute(options.srcAttr) || target.getAttribute(`data-${options.srcAttr}`);
 
