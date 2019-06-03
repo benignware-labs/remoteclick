@@ -68,7 +68,7 @@ function remoteclick(selector, options = {}) {
           response.text().then(html => {
             // Remove pending class
             options.pendingClass.split(/\s+/).forEach((className) => {
-              target.classList.add(className);
+              target.classList.remove(className);
             });
 
             // Parse html
@@ -105,6 +105,7 @@ function remoteclick(selector, options = {}) {
               // Take care of link wrappers
               const remoteTargetWrapper = [ ...remoteContainer.childNodes ]
                 .find((child) => remoteTarget && contains(child, remoteTarget)) || remoteTarget;
+
               const targetWrapper = [ ...container.childNodes ]
                 .find((child) => contains(child, target)) || target;
 
