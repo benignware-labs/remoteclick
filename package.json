@@ -1,6 +1,6 @@
 {
   "name": "remoteclick",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "description": "Ajaxify partial content easily",
   "main": "dist/remoteclick.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "ajax",
-    "form"
+    "click"
   ],
   "author": "Rafael Nowrotek",
   "license": "MIT",

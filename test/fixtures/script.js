@@ -1,4 +1,4 @@
 window.remoteclick('*[data-remote]', () => ({
   pendingClass: 'pending',
-  containerSelector: '#content'
+  containerSelector: (element) => element.getAttribute('data-remote')
 }));

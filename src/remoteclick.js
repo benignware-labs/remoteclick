@@ -19,14 +19,22 @@ function remoteclick(selector, options = {}) {
         )
       };
 
-      const container = options.containerSelector
-        ? document.querySelector(options.containerSelector)
+      let { containerSelector } = options;
+
+      if (typeof containerSelector === 'function') {{
+        containerSelector = containerSelector(target);
+      }}
+
+      const container = containerSelector
+        ? document.querySelector(containerSelector)
         : target.parentNode;
+
+      containerSelector = containerSelector || uniqueSelector(container);
+
       const href = target.getAttribute(options.srcAttr) || target.getAttribute(`data-${options.srcAttr}`);
 
       if (container && href) {
         const url = new URL(href, window.location.href);
-        const containerSelector = options.containerSelector || uniqueSelector(container);
         const targetSelector = uniqueSelector(target);
 
         // Add pending class
@@ -45,7 +53,7 @@ function remoteclick(selector, options = {}) {
             });
 
             // Parse html
-            const dom = document.createElement( 'div' );
+            const dom = document.createElement('div');
             dom.innerHTML = html;
 
             // Find remote target

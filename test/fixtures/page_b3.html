@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/remoteclick.js"></script>
+    <script src="/script.js"></script>
+  </head>
+  <body>
+    <div class="site p-4">
+      <div>
+        <h1>remoteform</h1>
+        <p>Ajaxify partial content easily<p>
+        <div class="content" id="content_b">
+          <article>
+            <h1>Entry B9</h1>
+          </article>
+          <article>
+            <h1>Entry B10</h1>
+          </article>
+          <article>
+            <h1>Entry B12</h1>
+          </article>
+          <article>
+            <h1>Entry B13</h1>
+          </article>
+          <nav>
+            <a href="/page_b4.html" data-remote="#content_b" class="btn btn-primary">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              <span class="btn-label">Load more</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
