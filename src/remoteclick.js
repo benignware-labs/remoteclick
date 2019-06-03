@@ -36,10 +36,12 @@ function remoteclick(selector, options = {}) {
         if (containerSelector) {
           container = document.querySelector(containerSelector);
         } else {
-          container = target.parentNode;
+          const nav = target.closest('nav');
 
-          while (container && container.tagName.toLowerCase() === 'nav') {
-            container = container.parentNode;
+          if (nav) {
+            container = nav.parentNode;
+          } else {
+            container = target.parentNode;
           }
         }
       }
